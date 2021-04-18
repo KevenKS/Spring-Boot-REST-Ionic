@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.data.redis.RedisProperties.ClientType;
 
-import com.fasterxml.jackson.datatype.jdk8.WrappedIOException;
 import com.keven.cursomc.domain.Categoria;
 import com.keven.cursomc.domain.Cidade;
 import com.keven.cursomc.domain.Cliente;
