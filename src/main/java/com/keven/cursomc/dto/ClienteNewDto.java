@@ -2,21 +2,45 @@ package com.keven.cursomc.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
+
+import com.keven.cursomc.services.validation.ClienteInsert;
+
+@ClienteInsert
 public class ClienteNewDto implements Serializable{
 	private static final long serialVersionUID = 1L;
 
+	@NotEmpty(message = "Preenchimento obg")
+	@Length(min = 5, max = 120, message = "Entre 5 e 120 caracteres")
 	private String nome;
+	
+	@NotEmpty(message = "Preenchimento obg")
+	@Email(message = "Email invalido (sintatico)")
 	private String email;
-	private String cpfOuCnpj;	
+	
+	@NotEmpty(message = "Preenchimento obg")
+	private String cpfOuCnpj;
+	
 	private Integer tipo;
 	
+	@NotEmpty(message = "Preenchimento obg")
 	private String logradouro;
+	
+	@NotEmpty(message = "Preenchimento obg")
 	private String numero;
+	
 	private String complemento;
 	private String bairro;
+	
+	@NotEmpty(message = "Preenchimento obg")
 	private String cep;
 	
+	@NotEmpty(message = "Preenchimento obg")
 	private String telefone1;
+	
 	private String telefone2;
 	
 	private Integer cidadeId;
