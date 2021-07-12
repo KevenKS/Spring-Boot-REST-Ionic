@@ -8,6 +8,7 @@ import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.keven.cursomc.domain.Cliente;
 import com.keven.cursomc.domain.enums.TipoCliente;
 import com.keven.cursomc.dto.ClienteNewDto;
 import com.keven.cursomc.repositories.ClienteRepository;
@@ -16,8 +17,8 @@ import com.keven.cursomc.services.validation.utils.BR;
 
 public class ClienteInsertValidation implements ConstraintValidator<ClienteInsert, ClienteNewDto> {
 
-	//@Autowired
-	//private ClienteRepository repo;
+	@Autowired
+	private ClienteRepository repo;
 
 	@Override
 	public void initialize(ClienteInsert ann) {
@@ -35,10 +36,10 @@ public class ClienteInsertValidation implements ConstraintValidator<ClienteInser
 			list.add(new FieldMessage("cpfOuCnpj", "CNPJ inválido"));
 		}
 
-		/*Cliente aux = repo.findByEmail(objDto.getEmail());
+		Cliente aux = repo.findByEmail(objDto.getEmail());
 		if (aux != null) {
 			list.add(new FieldMessage("email", "Email já existente"));
-		}*/
+		}
 
 		for (FieldMessage e : list) {
 			context.disableDefaultConstraintViolation();
